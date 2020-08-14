@@ -9,7 +9,7 @@ export const purchaseBurgerSuccess = (orderId, orderData) => {
   };
 };
 
-export const purchaseBurgerError = (error) => {
+export const purchaseBurgerFail = (error) => {
   return {
     type: actionTypes.PURCHASE_BURGER_FAIL,
     error: error
@@ -30,7 +30,7 @@ export const purchaseBurger = (orderData, token) => {
         dispatch(purchaseBurgerSuccess(response.data.name, orderData));
       })
       .catch(error => {
-          dispatch(purchaseBurgerError(error));
+          dispatch(purchaseBurgerFail(error));
       });
   }
 }
